@@ -33,7 +33,7 @@
 				padding-top: 32px;
 				line-height: 1.5em;
 			}
-			.movePopup .movePopupSon>a{
+			.movePopup .movePopupSon>.movePopuptop{
 				position: absolute;
 			    width: 35px;
 			    height: 100px;
@@ -62,7 +62,7 @@
 			    margin-top: 5px;
 			    margin-bottom: 20px;
 			}
-			.movePopup .movePopupSon button{
+			.movePopup .movePopupSon .movePopupbottom{
 				width: 80%;
 				margin: auto;
 				height: 50px;
@@ -76,8 +76,9 @@
 				margin-top: 10px;
 				border-radius: 5px;
 				outline: none;
+				text-decoration: none;
 			}
-			.movePopup .movePopupSon button img{
+			.movePopup .movePopupSon .movePopupbottom img{
 				width:15px;
 				margin-right: 5px;
 			}
@@ -111,11 +112,11 @@
 		<button id="abt">打开</button>
 		<div class="movePopup">
 			<div class="movePopupSon">
-				<a href="javascript:void(0)"><img src="img/delMiddle.png"/></a>
+				<a href="javascript:void(0)" class="movePopuptop"><img src="img/delMiddle.png"/></a>
 				<p>电话<span>180s</span>后失效</p>
 				<h2>18311001100</h2>
 				<h3>（此号码暂不支持短信收发功能）</h3>
-				<button><img src="img/telMiddle.png"/>立即拨打</button>
+				<a href="tel:18311001100" class="movePopupbottom"><img src="img/telMiddle.png"/>立即拨打</a>   
 			</div>
 		</div>
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
