@@ -20,17 +20,15 @@
 				animation: bounceInDown 0.8s ease-out;
 				font-family: "微软雅黑";
 			}
-			.movePopup p,h2,h3,h4{padding: 0;margin: 0;}
+			.movePopup h1,p,h2,h3,h4{padding: 0;margin: 0;}
 			.movePopup .movePopupSon{
 				width: 80%;
-				height: 30%;
 				background: #fff;
-				padding: 5%;
+				padding:30px 5%;
 				box-sizing: border-box;
 				position: relative;
 				text-align: center;
 				float: none;
-				padding-top: 32px;
 				line-height: 1.5em;
 			}
 			.movePopup .movePopupSon>.movePopuptop{
@@ -44,10 +42,18 @@
 			.movePopup .movePopupSon>a>img{
 				width: 100%;
 			}
+			.movePopup .movePopupSon h1{
+				font-size: 30px;
+			    color: #327bfd;
+			    font-weight: bold;
+			    padding: 0 0 10px 0;
+			}
 			.movePopup .movePopupSon p{
-				font-size: 18px;
-			    color: #333333;
+				font-size: 16px;
+			    color: #ccc;
+			    margin-top: 10px;
 			    font-weight: 500;
+			    
 			}
 			.movePopup .movePopupSon h2{
 				font-size: 24px;
@@ -59,8 +65,6 @@
 				color: #999999;
 			    font-size: 15px;
 			    font-weight: 500;
-			    margin-top: 5px;
-			    margin-bottom: 20px;
 			}
 			.movePopup .movePopupSon .movePopupbottom{
 				width: 80%;
@@ -113,7 +117,8 @@
 		<div class="movePopup">
 			<div class="movePopupSon">
 				<a href="javascript:void(0)" class="movePopuptop"><img src="img/delMiddle.png"/></a>
-				<p>电话<span>180s</span>后失效</p>
+				<h1>最新报价</h1>
+				<p>电话<span id="numberTime">180</span>s后失效</p>
 				<h2>18311001100</h2>
 				<h3>（此号码暂不支持短信收发功能）</h3>
 				<a href="tel:18311001100" class="movePopupbottom"><img src="img/telMiddle.png"/>立即拨打</a>   
@@ -123,10 +128,25 @@
 		<script type="text/javascript">
 			$(".movePopupSon a").click(function(){
 				$(".movePopup").css("display","none")
+				clearInterval(timeSet)
+				$("#numberTime").html(180)
 			})
 			$("#abt").click(function(){
 				$(".movePopup").css("display","flex")
+				time()
 			})
+			var timeSet=null
+			function time(){
+				var index=180
+				timeSet=setInterval(function(){
+						if(index==1){
+							clearInterval(timeSet)
+							$(".movePopup").css("display","none")
+						}
+						index--
+						$("#numberTime").html(index)
+					},1000)
+			}
 		</script>
 	</body>
 </html>
